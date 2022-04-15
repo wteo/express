@@ -1,21 +1,12 @@
 const express = require("express");
 const path = require("path") // node.JS method
-const moment = require("moment");
+const logger = require("./middleware/logger");
 const members = require("./Members");
-
 
 const app = express();
 
-const logger = (req, res, next) => {
-    // You can write whatever code you want here.
-    console.log(`${req.protocol}://${req.get('host')}${
-        req.originalUrl}: ${moment().format()}`);
-    next();
-    
-}
-
 // To initialize your middleware
-app.use(logger);
+// app.use(logger);
 
 // Gets All Members
 app.get("/api/members", (req, res) => {
